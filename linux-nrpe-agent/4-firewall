@@ -29,13 +29,14 @@ if [ "$distro" == "CentOS" ] || [ "$distro" == "RedHatEnterpriseServer" ] || [ "
     if ! hash iptables 2>/dev/null; then
         skip_firewall
     else
-        if [ $ver -eq 7 ]; then
-			if [ `/bin/systemctl is-active firewalld` == "inactive" ]; then
-				skip_firewall
-			elif [ `/bin/systemctl is-active firewalld` == "unknown" ]; then
-				skip_firewall
-			fi
-        fi
+        skip_firewall
+       # if [ $ver -eq 7 ]; then
+		#	if [ `/bin/systemctl is-active firewalld` == "inactive" ]; then
+		#		skip_firewall
+		#	elif [ `/bin/systemctl is-active firewalld` == "unknown" ]; then
+		#		skip_firewall
+		#	fi
+       # fi
 
         # determine information for the rules
         CHAIN=$(iptables -L | awk '/^Chain.*INPUT/ {print $2; exit(0)}')
