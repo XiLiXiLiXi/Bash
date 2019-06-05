@@ -58,11 +58,6 @@ if [ "$distro" == "EnterpriseEnterpriseServer" ]; then
 	distro=OracleServer
 fi
 
-# Fix Oracle Linux Server without file redhat-release
-if [ "$distro" == "Oracle" ]; then
-	distro=OracleServer
-fi
-
 # Verify that we have a distro now
 if [ -z "$distro" ]; then
 	echo "ERROR: Could not determine OS. Please make sure lsb_release is installed or your OS info is in /etc/os-release." >&2
@@ -70,6 +65,6 @@ if [ -z "$distro" ]; then
 fi
 
 # Print results
-echo "$distro"
-echo "$version"
-echo "$architecture"
+#echo "$distro"
+#echo "$version"
+#echo "$architecture"
