@@ -180,7 +180,7 @@ run_sub ./0-repos noupdate
 run_sub ./1-prereqs
 run_sub ./2-usersgroups
 run_sub ./3-services
-run_sub ./4-firewall
+# run_sub ./4-firewall  disable the firewall setting.
 run_sub ./A-subcomponents
 
 echo >>"$log"
@@ -198,12 +198,12 @@ cat <<-EOF
 
 EOF
 
-if [ -f skipped.firewall ]; then
-	cat <<-SKIPFW
-
-	NOTICE:
-	Your firewall configuration was skipped
-	You need to manually open ports 5666 for TCP traffic
-
-SKIPFW
-fi
+#if [ -f skipped.firewall ]; then
+#	cat <<-SKIPFW
+#
+#	NOTICE:
+#	Your firewall configuration was skipped
+#	You need to manually open ports 5666 for TCP traffic
+#
+#SKIPFW
+#fi
